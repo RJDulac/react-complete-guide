@@ -43,7 +43,10 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    //slice used on constant to prevent mutation
+    // const persons = this.state.persons.slice();
+    //spread operator to avoid mutation by adding orginal into a new array
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
